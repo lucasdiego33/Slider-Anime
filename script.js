@@ -1,23 +1,14 @@
 
-let contador = 1;
+let slides = document.querySelectorAll('.input');
+let currentSlide = 0;
 
-
-setInterval(function(){
-    document.getElementById("slide" + contador).checked = true;
-    contador++;
-
-if(contador > 4){
-    contador = 1;
+function nextSlide() {
+    slides[currentSlide].checked = false;
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].checked = true;
 }
 
-
-}, 3000);
-
-
-
-
-
-
+setInterval(nextSlide, 3000);
 
 
 
